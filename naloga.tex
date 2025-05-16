@@ -305,12 +305,12 @@ in učenje.
 
 Preučimo lahko tudi predpostavko, da lahko z gotovostjo
 napovemo rast povpraševanja na nekaterih področjih. Če
-dejanska rast presega prevideno in bo DMU lahko vseeno
+dejanska rast presega predvideno in bo DMU lahko vseeno
 proizvajal na tej ravni brez dodatnih virov, ga bo
 model označil za manj učinkovitega. Alternativno bi
 lahko potrebovali dodatna sredstva.
 
-Težavo predstavlja lahko tudi napredek v tehnologiji
+Težavo lahko predstavlja tudi napredek v tehnologiji
 skozi leto, ki ni bil napovedan v modelu. Kot posledico
 lahko pomeni, da DMU-ji brez težav dosežejo svoje cilje,
 ne da bi dejansko opravili potrebne spremembe. Zato se
@@ -324,7 +324,35 @@ potrebujejo.
 
 \section{Praktični del}
 
+\subsection{Povzetek}
 
+Namen naše naloge je oceniti učinkovitost ameriškega in slovenskega
+javne uprave ter ju med sabo primerjati. Ker je z DEA metodami smiselno
+primerjati le DMU-je znotraj posameznih sektorjev, bomo v nalogi obravnavali le
+javno zdravstvo in javno šolstvo. Za posamezen DMU bomo vzeli državo v obdobju 
+treh let. Ker je vseh upravnih enot v ZDA 51 jih bomo za obravnavo izbrali le 
+5 po različnosti profila: California (visok BDP in največja po prebivalstvu),
+Texas (konzervativna politika, nižji javni izdatki), New York (urbana, napredno zdravstvo)
+Mississipi (šibki zrdavtsveni izidi) in Utah (visoka učinkovitost). Posebej
+bo obravnava tudi celotna ZDA, ki bo služila kot neke vrste "povprečje" in
+posredno omogočala primerjavo z državami, ki v analizi ne bodo vključene. 
+
+Za obdelavo vhodnih in izhodnih podatkov bomo uporabili BCC 
+(Banker-Charnes-Cooper) metodo, ki se najpogosteje uporabljena za 
+ocenjevanje učinkovitosti v javnih sektorjih, saj dovoljuje spremenljive 
+donose, učinkovitost DMU-jev pa se ne ocenjuje le na 
+absolutno produktivnost, pač pa se upošteva tudi njihova velikost.
+Metoda na podlagi vhodnih in izhodnih podatkov zgradi mejo učinkovitosti (kobinacija DMU-jev,
+ki so najusoešnejši), primerja vsak DMU z izračunano mejo in poda oceno od 0-1 ter 
+določi vrsto obsega:
+
+\begin{enumerate}
+    \item IRS (Increasing Returns to Scale): povečanje vložkov za nek faktor vodi v povečanje
+    izhoda za večji faktor,
+    \item DRS (Decreasing Returns to Scale): povečanje vložkov za nek faktor vodi v povečanje
+    izhoda za manjši faktor,
+    \item CRS (Constant Returns to Scale): povečanje vseh vložkov za določen faktor vodi v enako povečanje izhodov.
+\end{enumerate}
 
 \nocite*{}
 \bibliographystyle{apalike}
