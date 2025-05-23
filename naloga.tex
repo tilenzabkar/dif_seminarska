@@ -329,32 +329,84 @@ potrebujejo.
 Namen naše naloge je oceniti učinkovitost ameriškega in slovenskega
 javne uprave ter ju med sabo primerjati. Ker je z DEA metodami smiselno
 primerjati le DMU-je znotraj posameznih sektorjev, bomo v nalogi obravnavali le
-javno zdravstvo in javno šolstvo. Za posamezen DMU bomo vzeli državo v obdobju 
-treh let. Ker je vseh upravnih enot v ZDA 51 jih bomo za obravnavo izbrali le 
-5 po različnosti profila: California (visok BDP in največja po prebivalstvu),
-Texas (konzervativna politika, nižji javni izdatki), New York (urbana, napredno zdravstvo)
-Mississipi (šibki zrdavtsveni izidi) in Utah (visoka učinkovitost). Posebej
-bo obravnava tudi celotna ZDA, ki bo služila kot neke vrste "povprečje" in
-posredno omogočala primerjavo z državami, ki v analizi ne bodo vključene. 
+javno zdravstvo. Za posamezen DMU bomo vzeli državo (torej ZDA in Slovenijo) v obdobju 
+enega leta za obdobje 2000-2022. 
 
-Za obdelavo vhodnih in izhodnih podatkov bomo uporabili BCC 
-(Banker-Charnes-Cooper) metodo, ki se najpogosteje uporabljena za 
-ocenjevanje učinkovitosti v javnih sektorjih, saj dovoljuje spremenljive 
-donose, učinkovitost DMU-jev pa se ne ocenjuje le na 
-absolutno produktivnost, pač pa se upošteva tudi njihova velikost.
-Metoda na podlagi vhodnih in izhodnih podatkov zgradi mejo učinkovitosti (kobinacija DMU-jev,
-ki so najusoešnejši), primerja vsak DMU z izračunano mejo in poda oceno od 0-1 ter 
-določi vrsto obsega:
+Za obdelavo vhodnih in izhodnih podatkov bomo uporabili CRR 
+(Charles-Cooper-Rhoads) metodo, ki se pogosteje uporabljena za 
+ocenjevanje učinkovitosti v javnih sektorjih, kjer so DMU-ji podobnega obsega, saj 
+predpostavlja, da se s podvajanjem vhodov učinkovitost podvoji. 
+Metoda na podlagi vhodnih in izhodnih podatkov zgradi mejo učinkovitosti, kjer najuspešnejšemu DMU-ju pripiše vrednost 1,
+najmanj uspešnemu pa vrednost 0. Druge DMU-je nato primerja z danima mejama in poda oceno od 0-1, ki jo
+interpretiramo kot relativno učinkovitost na danem intervalu.
 
-\begin{enumerate}
-    \item IRS (Increasing Returns to Scale): povečanje vložkov za nek faktor vodi v povečanje
-    izhoda za večji faktor,
-    \item DRS (Decreasing Returns to Scale): povečanje vložkov za nek faktor vodi v povečanje
-    izhoda za manjši faktor,
-    \item CRS (Constant Returns to Scale): povečanje vseh vložkov za določen faktor vodi v enako povečanje izhodov.
-\end{enumerate}
+Matematično metodo oblikujemo kot kot:
 
-\subsection{Združene države Amerike}
+\section*{CRR (CCR) model DEA – matematična formulacija}
+
+Za vsako opazovano enoto \( o \) rešimo naslednji linearni program (vhodno orientiran model s konstantnim donosom na obseg):
+
+\begin{align*}
+\min_{\theta, \lambda} \quad & \theta \\
+\text{p. p.} \quad 
+& \sum_{j=1}^{n} \lambda_j x_{ij} \leq \theta x_{io}, \quad \forall i = 1, \dots, m \\
+& \sum_{j=1}^{n} \lambda_j y_{rj} \geq y_{ro}, \quad \forall r = 1, \dots, s \\
+& \lambda_j \geq 0, \quad \forall j = 1, \dots, n
+\end{align*}
+
+Kjer:
+\begin{itemize}
+    \item \( x_{ij} \) je vrednost vhodnega faktorja \( i \) za enoto \( j \),
+    \item \( y_{rj} \) je vrednost izhodnega faktorja \( r \) za enoto \( j \),
+    \item \( \lambda_j \) so uteži (kombinacija primerjalnih enot),
+    \item \( \theta \) predstavlja oceno učinkovitosti (relativno tehnično učinkovitost enote \( o \)).
+\end{itemize}
+
+Če je \( \theta = 1 \), je enota učinkovita. Če je \( \theta < 1 \), je neučinkovita.
+
+Poleg CRR metode bomo v nalogi uporabili še tako imenovani Malmquistovi indeks produktivnosti.
+Pogosto se uporablja v analizi učinkovitosti med dvema časovnima obdobjema, poleg učinkovitosti
+pa naj bi zaobjel tudi tehnološki napredek. Ker Malmquistov indeks
+primerja le dve zaporedni obdoobji (torej dva DMU-ja), ne sam ne spada pod DEA metode
+(kjer so za konstrukcijo meje učinkovitosti potrebni najmanj 3 DMU-ji), se pa pogosto uporablja
+v kobinaciji z DEA metodami. Za razliko od DEA metod, pa ocenjuje relativno spremembo učinkovitosti 
+(in tehnološkega napredka) proti preteklemu letu. 
+
+Metoda v vsakem časovnem obdobju pripiše indeks, ki je primeru povečanja učinkovitosti napram,
+prejšnjemu letu večji od 1, v primeru pomanjšanja učinkovitosti pa manjši od 1. Prvemu obdobju
+indeksa ne pripišemo saj služi za bazo, ki je nimamo z ničimer primerjati. V našem primeru bo baza 
+država v letu 2000, za vsa naslednja leta pa izračunamo indeks na podalgi prejšnjega.
+
+Matematično metodo zapišemo:
+
+\section*{Malmquistov indeks produktivnosti}
+
+Malmquistov indeks med obdobjema \( t \) in \( t+1 \) za določeno enoto se izračuna kot:
+
+\begin{equation*}
+M_0^{t,t+1} = \sqrt{
+\left( \frac{D_t(x^{t+1}, y^{t+1})}{D_t(x^t, y^t)} \right)
+\cdot
+\left( \frac{D_{t+1}(x^{t+1}, y^{t+1})}{D_{t+1}(x^t, y^t)} \right)
+}
+\end{equation*}
+
+Kjer je:
+\begin{itemize}
+    \item \( D_t(x^t, y^t) \) – funkcija razdalje glede na tehnologijo v obdobju \( t \),
+    \item \( x^t, y^t \) – vhod in izhod v času \( t \),
+    \item \( x^{t+1}, y^{t+1} \) – vhod in izhod v času \( t+1 \).
+\end{itemize}
+
+Indeks lahko zapišemo tudi kot produkt:
+\[
+M_0^{t,t+1} = \underbrace{\frac{D_{t+1}(x^{t+1}, y^{t+1})}{D_t(x^t, y^t)}}_{\text{Total productivity change}}
+= \underbrace{\frac{D_{t+1}(x^{t+1}, y^{t+1})}{D_t(x^{t+1}, y^{t+1})}}_{\text{Tehnološka sprememba}}
+\times
+\underbrace{\frac{D_t(x^{t+1}, y^{t+1})}{D_t(x^t, y^t)}}_{\text{Sprememba učinkovitosti}}
+\]
+
+
 
 \nocite*{}
 \bibliographystyle{apalike}
