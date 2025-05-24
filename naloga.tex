@@ -7,6 +7,7 @@
 \usepackage{mdframed}
 \usepackage{float}
 \usepackage{url}
+\usepackage{authblk}
 
 \theoremstyle{definition}
 \newenvironment{zgled}{%
@@ -21,6 +22,25 @@
 
 \setlength{\parskip}{1em}
 \setlength{\parindent}{0pt}
+
+\title{Analiza učinkovitosti javnega sektorja na primeru javnega zdravstva v Sloveniji in ZDA}
+\author{Vid Boncelj Trošt, Vid Hočevar, Urh Videčnik, Tilen Žabkar}
+\date{\today}
+\affil{Fakulteta za matematiko in fiziko, Univerza v Ljubljani}
+\maketitle
+
+\begin{abstract}
+    Namen naše naloge je oceniti učinkovitost ameriške in slovenske javne
+    uprave. Tega smo se lotili z CRR modelom DEA analize. Zaradi oblike modela
+    smo se osredotočili samo na zdravstvo. V teoretičnem
+    delu smo spoznali osnovno idejo DEA analize, kako se uporablja za 
+    izboljšanje učinkovitosti ter si ogledali preprost zgled. Izpostavili
+    smo tudi pomankljivosti DEA. V praktičnem delu smo s pomočjo CRR indeksa
+    ugotovili, da v zdravstvu v Sloveniji in ZDA produktivnost raste, najbolj
+    produktiven čas pa je bil čas epidemije Covid-19. 
+\end{abstract}
+
+\newpage
 
 \tableofcontents
 
@@ -48,7 +68,7 @@ zdravstva, izobraževanja in varnosti. Te storitve se financirajo
 iz državenga proračuna (ki se financira iz davkov ter državenga
 dolga) in ne prek zaračunavanja storitev. 
 
-Številne študije so pokazale, da tako organizacije iz tako javnega
+Številne študije so pokazale, da tako organizacije iz javnega
 kot tudi zasebnega sektorja ne uporabljajo svojih omejenih virov
 učinkovito. Možna posledica je, da bi prerazporeditev virov iz
 zagotavljanja blaga in storitev, ki imajo razmeroma nizke
@@ -58,7 +78,7 @@ Druga posledica je, da viri niso uporabljeni na najbolj
 produktiven način; to pomeni, da je mogoče proizvesti več
 blaga in storitev brez dodatnih virov. \cite{Yaisawarng2002}
 
-\subsection{Konceptno ogrodje}
+\subsection{Teoretično ogrodje}
 
 Vladne agencije običajno vključujejo več enot za izvajanje 
 storitev, ki zagotavljajo osnovne socialne storitve. 
@@ -134,6 +154,7 @@ Ta lahko identificira situacije, ki so specifične za ta DMU
 in so zunaj nadzora vodje. V tem primeru se morajo te situacije
 izvzeti iz DEA modela. Navedli bomo postopek, kako se DEA
 lahko uporabi za izboljšanje učinkovitosti. \cite{Yaisawarng2002}
+\newpage
 
 \begin{enumerate}
     \item Uporabimo ocene učinkovitosti DEA in tako poiščemo
@@ -243,6 +264,8 @@ Oglejmo si različne načine za določanje ciljev DMU-jev.
     \footnotesize{Vir: \cite{Yaisawarng2002}}
 \end{table}
     
+\newpage
+
 \begin{enumerate}
     \item[Možnost 1:] Ciljna ocena učinkovitosti za 
     DMU $A$ v 3.\ letu je najmanj 0{,}875, razmerja 
@@ -325,25 +348,21 @@ potrebujejo.
 
 \section{Praktični del}
 
-\subsection{Povzetek}
-
-Namen naše naloge je oceniti učinkovitost ameriškega in slovenskega
-javne uprave ter ju med sabo primerjati. Ker je z DEA metodami smiselno
+Namen naše naloge je oceniti učinkovitost ameriške in slovenske
+javne uprave. Ker je z DEA metodami smiselno
 primerjati le DMU-je znotraj posameznih sektorjev, bomo v nalogi obravnavali le
 javno zdravstvo. Za posamezen DMU bomo vzeli državo (torej ZDA in Slovenijo) v obdobju 
-enega leta za obdobje 2000-2022. 
+enega leta za obdobje 2000--2022. 
 
 Za obdelavo vhodnih in izhodnih podatkov bomo uporabili CRR 
-(Charles-Cooper-Rhoads) metodo, ki se pogosteje uporabljena za 
+(Charles-Cooper-Rhoads) metodo, ki se pogosto uporablja za 
 ocenjevanje učinkovitosti v javnih sektorjih, kjer so DMU-ji podobnega obsega, saj 
 predpostavlja, da se s podvajanjem vhodov učinkovitost podvoji. 
 Metoda na podlagi vhodnih in izhodnih podatkov zgradi mejo učinkovitosti, kjer najuspešnejšemu DMU-ju pripiše vrednost 1,
 najmanj uspešnemu pa vrednost 0. Druge DMU-je nato primerja z danima mejama in poda oceno od 0-1, ki jo
 interpretiramo kot relativno učinkovitost na danem intervalu.
 
-Matematično metodo oblikujemo kot kot:
-
-\section*{CRR (CCR) model DEA – matematična formulacija}
+\subsection{Matematična formulacija CRR modela DEA}
 
 Za vsako opazovano enoto \( o \) rešimo naslednji linearni program (vhodno orientiran model s konstantnim donosom na obseg):
 
@@ -355,7 +374,7 @@ Za vsako opazovano enoto \( o \) rešimo naslednji linearni program (vhodno orie
 & \lambda_j \geq 0, \quad \forall j = 1, \dots, n
 \end{align*}
 
-Kjer:
+Kjer velja:
 \begin{itemize}
     \item \( x_{ij} \) je vrednost vhodnega faktorja \( i \) za enoto \( j \),
     \item \( y_{rj} \) je vrednost izhodnega faktorja \( r \) za enoto \( j \),
@@ -363,24 +382,22 @@ Kjer:
     \item \( \theta \) predstavlja oceno učinkovitosti (relativno tehnično učinkovitost enote \( o \)).
 \end{itemize}
 
-Če je \( \theta = 1 \), je enota učinkovita. Če je \( \theta < 1 \), je neučinkovita.
+Če je \( \theta = 1 \), je enota učinkovita, sicer je neučinkovita in velja \( \theta < 1 \).
 
 Poleg CRR metode bomo v nalogi uporabili še tako imenovani Malmquistovi indeks produktivnosti.
 Pogosto se uporablja v analizi učinkovitosti med dvema časovnima obdobjema, poleg učinkovitosti
 pa naj bi zaobjel tudi tehnološki napredek. Ker Malmquistov indeks
-primerja le dve zaporedni obdoobji (torej dva DMU-ja), ne sam ne spada pod DEA metode
+primerja le dve zaporedni obdobji (torej dva DMU-ja), ne spada pod DEA metode
 (kjer so za konstrukcijo meje učinkovitosti potrebni najmanj 3 DMU-ji), se pa pogosto uporablja
-v kobinaciji z DEA metodami. Za razliko od DEA metod, pa ocenjuje relativno spremembo učinkovitosti 
-(in tehnološkega napredka) proti preteklemu letu. 
+v kobinaciji z DEA metodami. Za razliko od DEA metod pa ocenjuje relativno spremembo učinkovitosti 
+(in tehnološkega napredka) glede na preteklo leto. 
 
-Metoda v vsakem časovnem obdobju pripiše indeks, ki je primeru povečanja učinkovitosti napram,
-prejšnjemu letu večji od 1, v primeru pomanjšanja učinkovitosti pa manjši od 1. Prvemu obdobju
-indeksa ne pripišemo saj služi za bazo, ki je nimamo z ničimer primerjati. V našem primeru bo baza 
+CRR metoda vsakemu časovnemu obdobju pripiše indeks, ki je v primeru povečanja učinkovitosti glede
+na prejšnje leto večji od 1, v primeru zmanjšanja učinkovitosti pa manjši od 1. Prvemu obdobju
+indeksa ne pripišemo, saj služi za bazo, ki je ne moremo z ničimer primerjati. V našem primeru bo baza 
 država v letu 2000, za vsa naslednja leta pa izračunamo indeks na podalgi prejšnjega.
 
-Matematično metodo zapišemo:
-
-\section*{Malmquistov indeks produktivnosti}
+\subsection{Malmquistov indeks produktivnosti}
 
 Malmquistov indeks med obdobjema \( t \) in \( t+1 \) za določeno enoto se izračuna kot:
 
@@ -394,25 +411,177 @@ M_0^{t,t+1} = \sqrt{
 
 Kjer je:
 \begin{itemize}
-    \item \( D_t(x^t, y^t) \) – funkcija razdalje glede na tehnologijo v obdobju \( t \),
-    \item \( x^t, y^t \) – vhod in izhod v času \( t \),
-    \item \( x^{t+1}, y^{t+1} \) – vhod in izhod v času \( t+1 \).
+    \item \( D_t(x^t, y^t) \) - funkcija razdalje glede na tehnologijo v obdobju \( t \),
+    \item \( x^t, y^t \) - vhod in izhod v času \( t \),
+    \item \( x^{t+1}, y^{t+1} \) - vhod in izhod v času \( t+1 \).
 \end{itemize}
 
 Indeks lahko zapišemo tudi kot produkt:
 \[
-M_0^{t,t+1} = \underbrace{\frac{D_{t+1}(x^{t+1}, y^{t+1})}{D_t(x^t, y^t)}}_{\text{Total productivity change}}
+M_0^{t,t+1} = \underbrace{\frac{D_{t+1}(x^{t+1}, y^{t+1})}{D_t(x^t, y^t)}}_{\text{Skupna sprememba učinkovitosti}}
 = \underbrace{\frac{D_{t+1}(x^{t+1}, y^{t+1})}{D_t(x^{t+1}, y^{t+1})}}_{\text{Tehnološka sprememba}}
 \times
 \underbrace{\frac{D_t(x^{t+1}, y^{t+1})}{D_t(x^t, y^t)}}_{\text{Sprememba učinkovitosti}}
 \]
 
-\section{ZDA}
-TESTTTT
+\subsection{Analiza učinkovitosti javnega zdravstva v ZDA}
 
-%%%% od tu naprej je oO-vbt-Oo tekst
-\section{Slovenija}
-\subsection{Javna poraba}
+V skladu z metodologijo DEA smo za ocenjevanje učinkovitosti javnega sektorja v zdravstvu uporabili naslednje spremenljivke:
+
+\begin{itemize}
+\item Vhodne spremenljivke:
+    \begin{itemize}
+        \item Javna poraba kot delež BDP (v USD prilagojena glede na inflacijo), ki odraža obseg javnih sredstev za zdravstvo.
+        \item Število zdravnikov na 1000 prebivalcev, ki nam pokaže kadrovski vložek v zdravstveno oskrbo.
+        \item Število zdravstvenega osebja na 1000 prebivalcev, ki kaže širši kadrovski obseg.
+    \end{itemize}
+\item Izhodne spremenljivke:
+    \begin{itemize}
+        \item Pričakovana življenjska doba posameznika, ki nam povzame dolgoročno učinkovitost določenega zdravstvenega sistema.
+        \item Stopnja umrljivosti novorojenčkov, ki nam izraža kvaliteto in dostopnost do zdravstvene oskrbe.
+    \end{itemize}
+\end{itemize}
+
+Izbira teh spremenljivk temelji na priporočilih v literaturi \cite{Yaisawarng2002} in nam omogoča realistično oceno učinkovitosti glede na težko pridobljene razpoložljive podatke.
+
+\subsubsection{Poraba v zdravstvu}
+
+Spodnji graf prikazuje gibanje javne in zasebne porabe za zdravstvo na prebivalca v ZDA v obdobju med letoma 2000 in 2022. 
+Vrednosti so izražene v ameriških dolarjih in so prilagojene glede na inflacijo, kar omogoča primerljivo analizo skozi čas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{zda_poraba_na_prebivalca.png}
+    \caption{Poraba v zdravstvu na prebivalca v ZDA}
+    \label{fig:zda_poraba_na_prebivalca}
+\end{figure}
+
+Opazimo lahko, da je bila zasebna poraba (npr. plačila iz žepa, zasebna zavarovanja) večino obdobja višja od javne, 
+kar odraža strukturno naravnanost ameriškega zdravstvenega sistema k tržno financiranemu modelu. 
+Do leta 2008 je bila zasebna poraba izrazito višja, nato pa se razlika začne zmanjševati. 
+Posebno izstopata leto 2009, kjer pride do izrazitega padca zasebne porabe, zaradi gospodarske krize in leto 2020, 
+kar je najverjetneje posledica pandemije COVID-19, ki je zmanjšala porabo zdravstvenih storitev pri zasebnem sektorju.
+
+Po letu 2020 se trend obrne: javna poraba prehiti zasebno, 
+kar lahko kaže na povečano vlogo države pri financiranju zdravstvenih ukrepov med pandemijo in po njej. 
+
+Graf tako jasno pokaže, da se struktura financiranja v ZDA ni stabilna, 
+temveč se skozi čas prilagaja družbenim in ekonomskim razmeram.
+
+Naseldnji graf prikazuje gibanje javne porabe za zdravstvo kot deleža BDP v ZDA med letoma 2000 in 2022. 
+Opazimo lahko, da se je delež javne porabe postopoma povečeval. 
+V začetku obdobja (okoli leta 2000) je znašal okrog $6 \%$ BDP, 
+nato pa je v času gospodarske krize okoli leta 2009 močno narasel, 
+kar je verjetno posledica večjih državnih izdatkov za zdravstvene in socialne programe.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{zda_poraba_delez_BDP.png}
+    \caption{Poraba v zdravstvu v ZDA kot delež BDP}
+    \label{fig:zda_poraba_delez_BDP}
+\end{figure}
+
+V letih po krizi se delež stabilizira na ravni okoli $8\%$, nato pa v letu 2020 
+ponovno izrazito poskoči, tokrat na približno $10\%$ BDP. Ta skok sovpada s pandemijo COVID-19, 
+ko je vlada sprejela številne interventne ukrepe in povečala izdatke za zdravstveni sistem. 
+V letih 2021 in 2022 se javna poraba nekoliko zniža, vendar ostaja višja kot pred pandemijo, 
+kar nakazuje na trajnejši premik v vlogi države pri financiranju zdravstva.
+
+Ta trend potrjuje ugotovitve iz prejšnje analize: v kriznih obdobjih (ekonomska recesija, pandemija) 
+se država aktivneje vključuje v financiranje zdravstvenih storitev, kar vpliva na strukturo celotnega sistema. 
+Povečan delež javne porabe pomeni večjo vlogo države in lahko vpliva tudi na učinkovitost in dostopnost zdravstvenega varstva.
+
+\subsubsection{Število zdravnikov in zdravstvenega osebja}
+
+Na spodnjem grafu želimo prikazati razvoj dveh ključnih kazalnikov kadrovskega vložka v zdravstveni sistem v ZDA: 
+števila zdravnikov in števila zdravstvenega osebja na 1000 prebivalcev v obdobju 2000–2022.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{zda_stevilo_zdravnikov.png}
+    \caption{Število zdravnikov in zdravstvenega osebja na 1000 prebivalcev v ZDA}
+    \label{fig:zda_stevilo_zdravnikov}
+\end{figure}
+
+Iz grafa je razvidno, da se je v zadnjih dveh desetletjih število obeh skupin sistematično povečevalo. 
+Število zdravnikov se je postopno dvignilo z 2,56 na 3,12 zdravnika na 1000 prebivalcev (indeks 1,22). 
+Še izrazitejši pa je trend pri širšem zdravstvenem osebju (ki vključuje medicinske sestre, tehnike, ...), 
+kjer se je vrednost povečala iz približno 11,8 na 16,76 oseb na 1000 prebivalcev (indeks 1,42).
+
+Ta rast je pomembna tudi za oceno učinkovitosti z metodo DEA, saj predstavljajo kadri enega izmed ključnih vhodov v analizi. 
+Višji obseg kadrov pomeni večjo zmogljivost zdravstvenega sistema, vendar šele povezava z izhodnimi kazalniki 
+(npr. življenjsko dobo) pokaže, ali je ta kadrovska širitev tudi učinkovita.
+
+\subsubsection{Zdravstveni izidi}
+
+Spodnja grafa prikazujeta dva ključna izhoda zdravstvenega sistema, to sta
+pričakovana življenjska doba ter stopnja umrljivosti novorojenčkov (število smrti do 1. leta starosti na 1000 rojstev).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{zda_zdravstveni_izzidi.png}
+    \caption{Zdravstveni izidi v ZDA}
+    \label{fig:zda_zdravstveni_izzidi}
+\end{figure}
+
+Pričakovana življenjska doba v ZDA je od leta 2000 do 2019 naraščala, 
+kar je kazalo na izboljšanje splošnega zdravstvenega stanja prebivalstva. 
+V tem obdobju se je zvišala s 76,8 na skoraj 79,70 let. 
+Vendar se je nato pojavil izrazit preobrat - med letoma 2020 in 2021 je pričakovana življenjska doba močno padla, 
+kar sovpada s pandemijo COVID-19. Leta 2022 je zaznati rahlo okrevanje, vendar vrednost še ni dosegla predpandemijske ravni.
+
+Stopnja umrljivosti novorojenčkov se je medtem ves čas postopno zmanjševala, iz približno 6,9 smrti do 1. leta starosti na 
+1000 rojstev v letu 2000 na okoli 5,4 v letu 2020. 
+Ta trend kaže na stalno izboljševanje v predporodni in poporodni zdravstveni oskrbi. 
+V letu 2021 se pojavi majhno poslabšanje, 
+kar lahko prav tako povezujemo s pandemijo in preobremenjenostjo zdravstvenega sistema, 
+a je nivo v letu 2022 še vedno nižji kot pred dvema desetletjema.
+
+\subsubsection{CRR indeks}
+Model CRR primerja posamezna leta in na podlagi količine vložkov ter doseženih rezultatov ovrednoti relativno učinkovitost. 
+Vrednost 1 pomeni najvišjo relativno učinkovitost, medtem ko vrednosti pod 1 pomenijo, 
+kako učinkovito je bilo leto glede na najbolj učinkovito leto. Indeks 0,4213 za leto 2003 pomeni, 
+da smo bili v tem letu le $42{,}13\%$ tako učinkoviti, kot v najbolj učinkovitem letu, ki ima indeks 1.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{zda_CRR_indeks.png}
+    \caption{CRR indeks v ZDA}
+    \label{fig:zda_CRR_indeks}
+\end{figure}
+
+Za vhodne podatke smo uporabili porabo javnega zdravstva kot delež bruto domačega proizvoda, 
+število zdravnikov (na 1000 prebivalcev) in število zdravstvenega osebja (na 1000 prebivalcev). 
+Pri izhodih pa smo preučili dva kazalnika, in sicer pričakovano življenjsko dobo in stopnjo umrljivosti dojenčkov, 
+ki meri število umrlih otrok pred dopolnjenim prvim letom starosti na vaških 1000 rojenih otrok.
+
+\subsubsection{Malmquistov indeks}
+
+Malmquist indeks meri spremembo skupne produktivnosti med dvema zaporednima letoma. Vrednosti:
+\begin{itemize}
+    \item nad 1 pomenijo napredek (več izhodov pri enakih ali manjših vhodih),
+    \item enako 1 pomeni stabilno produktivnost,
+    \item pod 1 pomeni upad produktivnosti.
+\end{itemize}
+Indeks tako upošteva tako tehnološki napredek (npr.\ boljši postopki, digitalizacija),
+kot tudi učinkovitostno prilagoditev (boljša organizacija ali raba virov).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{zda_malmquist_indeks.png}
+    \caption{Malmquist indeks v ZDA}
+    \label{fig:zda_malmquist_indeks}
+\end{figure}
+
+V grafu je črna referenčna črta pri vrednosti 1, ki nam predstavlja mejo stabilnosti. 
+Vidimo, da ZDA večino časa delujejo tik nad ali pod to vrednostjo, kar pomeni, 
+da se spremembe produktivnosti dogajajo počasi in postopoma. 
+Izjemen padec v letu 2022 pomeni, da je zdravstveni sistem (kljub morebitni rasti vhodov) 
+ustvaril občutno manj učinkovite izide kot leto prej.
+
+\subsection{Analiza učinkovitosti javnega zdravstva v Sloveniji}
+\subsubsection{Poraba v zdravstvu}
+
 Javna poraba namenjena zdravstvu od preloma tisočletja je nihala od dobre miljarde dolarjev letno, do več kot dveh miljard okoli leta 2010 in leta 2021. 
 Če si števila ogledamo na prebivalca je vzorec enak, leta 2008, 2009, 2011 in 2021 izdatki sežejo nad miljardo dolarjev.
 \begin{figure}[H]   % 'h' pomeni "here" - da se slika vstavi približno tukaj
@@ -446,18 +615,12 @@ Za povečanje izdatkov obstaja več razlogov. Prvi so demografske spremembe, nat
 Zelo hitro se povečujeta starostna odvisnost starejših od 65 let in vzdrževanost starejših od 85 let. 
 Ob začetku tretjega desetletja enaindvajsetega stoletja imamo 35 prebivalcev, starih nad 65 let, na 100 delovno sposobnih, ter približno 13 prebivalcev, starih nad 85 let, na 100 prebivalcev, starih med 50 in 64 let.
 Ob prelomu tisočletja sta bili obe številki nižji; starostna odvisnost je znašala dobrih 20, vzdrževanost starejših od 85 let pa manj kot deset. \cite{Sarec2023}
-Opisane spremembe seveda povečujejo potrebe po zdravstvenih storitvah in dolgotrajni oskrbi. \\
+Opisane spremembe seveda povečujejo potrebe po zdravstvenih storitvah in dolgotrajni oskrbi.
   
 Pomemben dejavnik rasti izdatkov je tudi razvoj tehnologije. 
 Po ocenah Urada Republike Slovenije za makroekonomske analize in razvoj naj bi po različnih ocenah od 25 odstotkov do 75 odstotkov rasti izdatkov pojasnjevali s tehnološkim napredkom. \cite{zdravniska_zbornica_2023}
 
-\subsection{CRR analiza}
-
-Za merjenje učinkovitosti javne porabe v zdravstvu smo uporabili Charnes-Cooper-Rhodes (CRR) model iz družine DEA metod. 
-Model primerja posamezna leta in na podlagi količine vložkov ter doseženih rezultatov ovrednoti relativno učinkovitost. 
-Vrednost 1 pomeni najvišjo relativno učinkovitost, vrednost 0 najnižjo, ostala leta pa so razvrščena vmes. \\
-
-\subsubsection{podatki}
+\subsubsection{Število zdravnikov in zdravstvenega osebja}
 
 Za vhodne podatke smo uporabili porabo javnega zdravstva kot delež bruto domačega proizvoda, 
 število zdravnikov (na 1000 prebivalcev) in število zdravstvenega osebja (na 1000 prebivalcev).
@@ -477,6 +640,8 @@ Za vhodne podatke smo uporabili porabo javnega zdravstva kot delež bruto domač
     \label{fig:zdr_osebje_1000_slo.png}
   \end{figure}
 
+\subsubsection{Zdravstveni izidi}
+
 Pri izhodih smo preučili dva kazanika, in sicer pričakovano življensko dobo državljanov in stopnjo umrljivosti dojenčkov, ki meri število umrlih otrok pred dopolnjenim prvim letom starosti na vskaih 1000 živorojenih otrok.
 %zopet vir podatkov
 
@@ -494,7 +659,11 @@ Pri izhodih smo preučili dva kazanika, in sicer pričakovano življensko dobo d
     \label{fig:umrljivost_doj_slo.png}
   \end{figure}
 
-\subsubsection{Analiza}
+\subsubsection{CRR indeks}
+
+  Za merjenje učinkovitosti javne porabe v zdravstvu smo uporabili Charnes-Cooper-Rhodes (CRR) model iz družine DEA metod. 
+  Model primerja posamezna leta in na podlagi količine vložkov ter doseženih rezultatov ovrednoti relativno učinkovitost. 
+  Vrednost 1 pomeni najvišjo relativno učinkovitost, vrednost 0 najnižjo, ostala leta pa so razvrščena vmes.
 
 \begin{figure}[H]
     \centering
@@ -508,7 +677,7 @@ Pri izhodih smo preučili dva kazanika, in sicer pričakovano življensko dobo d
   Leta 2011 indeks znaša 0.628367148, naslednje leto pa prvič pade, in sicer na 0.599161023.  
   V naslednjih nekaj letih se giba nekje nad 0.6, leta 2016 pa prvič naraste nad 0.7. 
   Do izbruha epidemije Covida-19 sledi hitra rast, do najbolj učinkovitega leta, 2021, ki ima seveda indeks 1. 
-  Leta 2022 učinkovitost malenkost pade, na 0.961403788. \\
+  Leta 2022 učinkovitost malenkost pade, na 0.961403788.
 
   Učinkovitost lahko primerjamo s spremembami bruto domačega proizvoda. 
   BDP neposredno kaže obseg gospodarske aktivnosti in s tem splošno ekonomsko stanje države. 
@@ -521,26 +690,29 @@ Pri izhodih smo preučili dva kazanika, in sicer pričakovano življensko dobo d
     \label{fig:bnp_pbr_slo.png}
 \end{figure}
 
-Rast BDP na prebivalca v letih do krize se ujema tudi z večanjem učinkovitosti zdravstva, prvi padec BDP-ja v letih 2009 in 2010 pa se pri CRR indeksu še ne pozna. 
+Rast BDP na prebivalca v letih do krize se ujema z večanjem učinkovitosti zdravstva, prvi padec BDP-ja v letih 2009 in 2010 pa se pri CRR indeksu še ne pozna. 
 Zdi se, da je učinek gospodarske krize nekoliko zakasnjen, saj se prvi padec zgodi šele leta 2012, ko se zmanjša tudi BDP. 
-V letih po krizi (od 2013 do 2018) je vzorec spremeb CRR in BDP enak, oba rasteta do 2015 in nato zopet do 2018. \\
+V letih po krizi (od 2013 do 2018) je vzorec spremeb CRR in BDP enak, oba rasteta do 2015 in nato zopet do 2018. 
+
 Leta 2019 je BDP na prebivalca padel za 83 evrov (kljub temu, da je celoten BDP zrastel), padec je sledil tudi leta 2020 (na prebivalca in celostno). 
 Učinkovitost tu ne sledi trendu gospodarstva, saj do leta 2021 raste do svojega »najboljšega rezultata«. 
 Leta 2021 se je gospodarstvo po pandemiji pobralo, kar se odraža tudi v večjem skoku BDP na prebivalca. 
-Najbolj učinkovito leto v zdravstvu je tako tudi leto z najvišjo gospodarsko aktivnostjo v preučevanem obdobju. \\
+Najbolj učinkovito leto v zdravstvu je tako tudi leto z najvišjo gospodarsko aktivnostjo v preučevanem obdobju.
 
 Ob tem je zanimivo, da Komisija za preprečevanje korupcije v svoji analizi delovanja javnega sektorja na področju zdravstva opozorila, da je epidemija povečala sistemske izzive. 
-Ob kriznem delovanju so se povečala tveganja povezana s korupcijo, opazili so netransparentnost pri naročilih in pogrešali več objavljenih podatkov o izvedenih naročilih. \cite{analizaJavnegaZdravstva2023} \\
+Ob kriznem delovanju so se povečala tveganja povezana s korupcijo, opazili so netransparentnost pri naročilih in pogrešali več objavljenih podatkov o izvedenih naročilih. 
+\cite{analizaJavnegaZdravstva2023} 
 
 Analiza ministrstva za zdravje je pokazala, da je bila dostopnost zdravstvenih storitev v letih 2020 in 2021 na splošno zmanjšana in okrnjena. 
 Za okoli 20 odstotkov so upadle obravave v ambulantah in hišne obravnave. Zelo okrnjeni so bili tudi preventivni programi (Zora, Dora in Svit), število preventivnih pregledov odraslih se je zmanjšalo za več kot pol. 
 Zabeleženo je bilo le 70 odstotokv realiziranih napotnic glede na število izdanih, kar pomeni, da velik del pacientov ni prišel do načrtovanih pregledov. \cite{jamsek2022analiza}
 
-CRR indeks kljub omenjenim težavam kaže, da je v izrednih razmerah zdravstvo delovalo najboljše. Pri ugotovitvah je potrebno upoštavati, da števila opravljenih pregledov v analizo nismo vključili, tako da je učinkovitost med epidemijo treba vzeti z rezervo. \\
+CRR indeks kljub omenjenim težavam kaže, da je v izrednih razmerah zdravstvo delovalo najboljše. Pri ugotovitvah je potrebno upoštavati, da števila opravljenih pregledov v analizo nismo vključili, tako da je učinkovitost med epidemijo treba vzeti z rezervo.
+
 Vseeno velja omeniti, da je Covid-19 imel tudi pozitivne učinke na učinkovitost, poročila predvsem izpostavljajo digitalizacijo.
 
 
-\subsection{Malmquistov indeks}
+\subsubsection{Malmquistov indeks}
 Malmquistov indeks meri spremembo skupne produktivnosti med dvema zaporednima letoma. 
 Vrednost nad 1 pomeni napredek, vrednost 1 stabilnost, medtem ko vrednost pod 1 kaže na upad produktivnosti. 
 Indeks zajema vpliv tehnološkega napredka in učinkovitostnih prilagoditev. Primarno se ga uporablja za analizo v podjetjih, 
