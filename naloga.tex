@@ -342,7 +342,7 @@ interpretiramo kot relativno učinkovitost na danem intervalu.
 
 Matematično metodo oblikujemo kot kot:
 
-\section*{CRR (CCR) model DEA – matematična formulacija}
+\subsection{CRR (CCR) model DEA – matematična formulacija}
 
 Za vsako opazovano enoto \( o \) rešimo naslednji linearni program (vhodno orientiran model s konstantnim donosom na obseg):
 
@@ -379,7 +379,7 @@ država v letu 2000, za vsa naslednja leta pa izračunamo indeks na podalgi prej
 
 Matematično metodo zapišemo:
 
-\section*{Malmquistov indeks produktivnosti}
+\subsection{Malmquistov indeks produktivnosti}
 
 Malmquistov indeks med obdobjema \( t \) in \( t+1 \) za določeno enoto se izračuna kot:
 
@@ -406,8 +406,160 @@ M_0^{t,t+1} = \underbrace{\frac{D_{t+1}(x^{t+1}, y^{t+1})}{D_t(x^t, y^t)}}_{\tex
 \underbrace{\frac{D_t(x^{t+1}, y^{t+1})}{D_t(x^t, y^t)}}_{\text{Sprememba učinkovitosti}}
 \]
 
-\section{USA}
-TESTTTT
+\subsection{Analiza učinkovitosti javnega zdravstva v ZDA}
+
+V skladu z metodologijo DEA smo za ocenjevanje učinkovitosti javnega sektorja v zdravstvu uporabili naslednje spremenljivke:
+
+\begin{itemize}
+\item Vhodne spremenljivke:
+    \begin{itemize}
+        \item Javna poraba kot delež BDP (v USD prilagojena glede na inflacijo), ki odraža obseg javnih sredstev za zdravstvo.
+        \item Število zdravnikov na 1000 prebivalcev, ki nam pokaže kadrovski vložek v zdravstveno oskrbo.
+        \item Število zdravstvenega osebja na 1000 prebivalcev, ki kaže širši kadrovski obseg.
+    \end{itemize}
+\item Izhodne spremenljivke:
+    \begin{itemize}
+        \item Pričakovana življenjska doba posameznika, ki nam povzame dolgoročno učinkovitost določenega zdravstvenega sistema.
+        \item Stopnja umrljivosti novorojenčkov, ki nam izraža kvaliteto in dostopnost do zdravstvene oskrbe.
+    \end{itemize}
+\end{itemize}
+
+Izbira teh spremenljivk temelji na priporočilih v literaturi \cite{Yaisawarng2002} in nam omogoča realistično oceno učinkovitosti glede na težko pridobljene razpoložljive podatke.
+
+\subsubsection{Poraba v zdravstvu}
+
+Spodnji graf prikazuje gibanje javne in zasebne porabe za zdravstvo na prebivalca v ZDA v obdobju med letoma 2000 in 2022. 
+Vrednosti so izražene v ameriških dolarjih in so prilagojene glede na inflacijo, kar omogoča primerljivo analizo skozi čas.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{zda_poraba_na_prebivalca.png}
+    \caption{Poraba v zdravstvu na prebivalca v ZDA}
+    \label{fig:zda_poraba_na_prebivalca}
+\end{figure}
+
+Opazimo lahko, da je bila zasebna poraba (npr. plačila iz žepa, zasebna zavarovanja) večino obdobja višja od javne, 
+kar odraža strukturno naravnanost ameriškega zdravstvenega sistema k tržno financiranemu modelu. 
+Do leta 2008 je bila zasebna poraba izrazito višja, nato pa se razlika začne zmanjševati. 
+Posebno izstopata leto 2090, kjer pride do izrazitega padca zasebne porabe, zaradi gospodarske krize in leto 2020, 
+kar je najverjetneje posledica pandemije COVID-19, ki je zmanjšala porabo zdravstvenih storitev pri zasebnem sektorju.
+
+Po letu 2020 se trend obrne: javna poraba prehiti zasebno, 
+kar lahko kaže na povečano vlogo države pri financiranju zdravstvenih ukrepov med pandemijo in po njej. 
+
+Graf tako jasno pokaže, da se struktura financiranja v ZDA ni stabilna, 
+temveč se skozi čas prilagaja družbenim in ekonomskim razmeram.
+
+Naseldnji graf prikazuje gibanje javne porabe za zdravstvo kot deleža BDP v ZDA med letoma 2000 in 2022. 
+Opazimo lahko, da se je delež javne porabe postopoma povečeval. 
+V začetku obdobja (okoli leta 2000) je znašal okrog $6 \%$ BDP, 
+nato pa je v času gospodarske krize okoli leta 2009 močno narasel, 
+kar je verjetno posledica večjih državnih izdatkov za zdravstvene in socialne programe.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{zda_poraba_delez_BDP.png}
+    \caption{Poraba v zdravstvu v ZDA kot delež BDP}
+    \label{fig:zda_poraba_delez_BDP}
+\end{figure}
+
+V letih po krizi se delež stabilizira na ravni okoli $8\%$, nato pa v letu 2020 
+ponovno izrazito poskoči, tokrat na približno $10\%$ BDP. Ta skok sovpada s pandemijo COVID-19, 
+ko je vlada sprejela številne interventne ukrepe in povečala izdatke za zdravstveni sistem. 
+V letih 2021 in 2022 se javna poraba nekoliko zniža, vendar ostaja višja kot pred pandemijo, 
+kar nakazuje na trajnejši premik v vlogi države pri financiranju zdravstva.
+
+Ta trend potrjuje ugotovitve iz prejšnje analize: v kriznih obdobjih (ekonomska recesija, pandemija) 
+se država aktivneje vključuje v financiranje zdravstvenih storitev, kar vpliva na strukturo celotnega sistema. 
+Povečan delež javne porabe pomeni večjo vlogo države in lahko vpliva tudi na učinkovitost in dostopnost zdravstvenega varstva.
+
+\subsubsection{Število zdravnikov in zdravstvenega osebja}
+
+Na spodnjem grafu želimo prikazati razvoj dveh ključnih kazalnikov kadrovskega vložka v zdravstveni sistem v ZDA: 
+števila zdravnikov in števila zdravstvenega osebja na 1000 prebivalcev v obdobju 2000–2022.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{zda_stevilo_zdravnikov.png}
+    \caption{Število zdravnikov in zdravstvenega osebja na 1000 prebivalcev v ZDA}
+    \label{fig:zda_stevilo_zdravnikov}
+\end{figure}
+
+Iz grafa je razvidno, da se je v zadnjih dveh desetletjih število obeh skupin sistematično povečevalo. 
+Število zdravnikov se je postopno dvignilo z 2,56 na 3,12 zdravnika na 1000 prebivalcev (indeks 1,22). 
+Še izrazitejši pa je trend pri širšem zdravstvenem osebju (ki vključuje medicinske sestre, tehnike, ...), 
+kjer se je vrednost povečala iz približno 11,8 na 16,76 oseb na 1000 prebivalcev (indeks 1,42).
+
+Ta rast je pomembna tudi za oceno učinkovitosti z metodo DEA, saj predstavljajo kadri enega izmed ključnih vhodov v analizi. 
+Višji obseg kadrov pomeni večjo zmogljivost zdravstvenega sistema, vendar šele povezava z izhodnimi kazalniki 
+(npr. življenjsko dobo) pokaže, ali je ta kadrovska širitev tudi učinkovita.
+
+\subsubsection{Zdravstveni izidi}
+
+Spodnja grafa prikazujeta dva ključna izhoda zdravstvenega sistema: 
+pričakovano življenjsko dobo ter stopnjo umrljivosti novorojenčkov (število smrti do 1. leta starosti na 1000 rojstev).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{zda_zdravstveni_izzidi.png}
+    \caption{Zdravstveni izidi v ZDA}
+    \label{fig:zda_zdravstveni_izzidi}
+\end{figure}
+
+Pričakovana življenjska doba v ZDA je od leta 2000 do 2019 naraščala, 
+kar je kazalo na izboljšanje splošnega zdravstvenega stanja prebivalstva. 
+V tem obdobju se je zvišala s 76,8 na skoraj 79,70 let. 
+Vendar se je nato pojavil izrazit preobrat – med letoma 2020 in 2021 je pričakovana življenjska doba močno padla, 
+kar sovpada s pandemijo COVID-19. Leta 2022 je zaznati rahlo okrevanje, vendar vrednost še ni dosegla predpandemijske ravni.
+
+Stopnja umrljivosti novorojenčkov se je medtem ves čas postopno zmanjševala, iz približno 6,9 smrti do 1. leta starosti na 
+1000 rojstev v letu 2000 na okoli 5,4 v letu 2020. 
+Ta trend kaže na stalno izboljševanje v predporodni in poporodni zdravstveni oskrbi. 
+V letu 2021 se pojavi majhno poslabšanje, 
+kar lahko prav tako povezujemo s pandemijo in preobremenjenostjo zdravstvenega sistema, 
+a je nivo v letu 2022 še vedno nižji kot pred dvema desetletjema.
+
+\subsubsection{CRR indeks}
+Model CRR primerja posamezna leta in na podlagi količine vložkov ter doseženih rezultatov ovrednoti relativno učinkovitost. 
+Vrednost 1 pomeni najvišjo relativno učinkovitost, medtem ko vrednosti pod 1 pomenijo, 
+kako učinkovito je bilo leto glede na najbolj učinkovito leto. Indeks 0,4513 za leto 2003 pomeni, 
+da smo bili v tem letu le $42,13\%$ tako učinkoviti, kot v najbolj učinkovitem letu, ki ima indeks 1.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{zda_CRR_indeks.png}
+    \caption{CRR indeks v ZDA}
+    \label{fig:zda_CRR_indeks}
+\end{figure}
+
+Za vhodne podatke smo uporabili porabo javnega zdravstva kot delež bruto domačega proizvoda, 
+število zdravnikov (na 1000 prebivalcev) in število zdravstvenega osebja (na 1000 prebivalcev). 
+Pri izhodih pa smo preučili dva kazalnika, in sicer pričakovano življenjsko dobo in stopnjo umrljivosti dojenčkov, 
+ki meri število umrlih otrok pred dopolnjenim prvim letom starosti na vaških 1000 rojenih otrok.
+
+\subsubsection{Malmquist indeks}
+
+Malmquist indeks meri spremembo skupne produktivnosti med dvema zaporednima letoma. Vrednosti:
+\begin{itemize}
+    \item nad 1 pomenijo napredek (več izhodov pri enakih ali manjših vhodih),
+    \item enako 1 pomeni stabilno produktivnost,ž
+    \item pod 1 pomeni upad produktivnosti.
+\end{itemize}
+Indeks tako upošteva tako tehnološki napredek (npr. boljši postopki, digitalizacija),
+kot tudi učinkovitostno prilagoditev (boljša organizacija ali raba virov).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{zda_malmquist_indeks.png}
+    \caption{Malmquist indeks v ZDA}
+    \label{fig:zda_malmquist_indeks}
+\end{figure}
+
+V grafu je črna referenčna črta pri vrednosti 1, ki nam predstavlja mejo stabilnosti. 
+Vidimo, da ZDA večino časa delujejo tik nad ali pod to vrednostjo, kar pomeni, 
+da se spremembe produktivnosti dogajajo počasi in postopoma. 
+Izjemen padec v letu 2022 pomeni, da je zdravstveni sistem (kljub morebitni rasti vhodov) 
+ustvaril občutno manj učinkovite izide kot leto prej.
 
 \nocite*{}
 \bibliographystyle{apalike}
