@@ -31,12 +31,12 @@
 
 \begin{abstract}
     Namen naše naloge je oceniti učinkovitost ameriške in slovenske javne
-    uprave. Tega smo se lotili s CRR modelom DEA analize. Zaradi oblike modela
+    uprave. Tega smo se lotili s CCR modelom DEA analize. Zaradi oblike modela
     smo se osredotočili samo na zdravstvo. V teoretičnem
     delu smo spoznali osnovno idejo DEA analize in kako se uporablja za 
     izboljšanje učinkovitosti. Izpostavili smo tudi pomankljivosti DEA. 
-    V praktičnem delu smo s pomočjo CRR indeksa in Malmquistovega indeksa
-    ugotovili, da v zdravstvu v Sloveniji in ZDA produktivnost raste v zadnjih
+    V praktičnem delu smo s pomočjo CCR indeksa in Malmquistovega indeksa
+    ugotovili, da v zdravstvu v Sloveniji in ZDA produktivnost v zadnjih
     25 letih raste, najbolj produktiven čas pa je bil čas epidemije COVID-19. 
 \end{abstract}
 
@@ -359,7 +359,7 @@ primerjati le DMU-je znotraj posameznih sektorjev, bomo v nalogi obravnavali le
 javno zdravstvo. Za posamezen DMU bomo vzeli državo (torej ZDA in Slovenijo) v obdobju 
 enega leta za obdobje 2000--2022.
 
-Za obdelavo vhodnih in izhodnih podatkov bomo uporabili CRR 
+Za obdelavo vhodnih in izhodnih podatkov bomo uporabili CCR 
 (Charles-Cooper-Rhoads) metodo, ki se pogosto uporablja za 
 ocenjevanje učinkovitosti v javnih sektorjih, kjer so DMU-ji podobnega obsega, saj 
 predpostavlja, da se s podvajanjem vhodov učinkovitost podvoji. 
@@ -367,7 +367,7 @@ Metoda na podlagi vhodnih in izhodnih podatkov zgradi mejo učinkovitosti, kjer 
 najmanj uspešnemu pa vrednost 0. Druge DMU-je nato primerja z danima mejama in poda oceno od 0-1, ki jo
 interpretiramo kot relativno učinkovitost na danem intervalu.
 
-\subsection{Matematična formulacija CRR modela DEA}
+\subsection{Matematična formulacija CCR modela DEA}
 
 Za vsako opazovano enoto \( o \) rešimo naslednji linearni program (vhodno orientiran model s konstantnim donosom na obseg):
 
@@ -389,7 +389,7 @@ Kjer velja:
 
 Če je \( \theta = 1 \), je enota učinkovita, sicer je neučinkovita in velja \( \theta < 1 \).
 
-Poleg CRR metode bomo v nalogi uporabili še tako imenovani Malmquistovi indeks produktivnosti.
+Poleg CCR metode bomo v nalogi uporabili še tako imenovani Malmquistovi indeks produktivnosti.
 Pogosto se uporablja v analizi učinkovitosti med dvema časovnima obdobjema, poleg učinkovitosti
 pa naj bi zaobjel tudi tehnološki napredek. Ker Malmquistov indeks
 primerja le dve zaporedni obdobji (torej dva DMU-ja), ne spada pod DEA metode
@@ -397,7 +397,7 @@ primerja le dve zaporedni obdobji (torej dva DMU-ja), ne spada pod DEA metode
 v kobinaciji z DEA metodami. Za razliko od DEA metod pa ocenjuje relativno spremembo učinkovitosti 
 (in tehnološkega napredka) glede na preteklo leto. 
 
-CRR metoda vsakemu časovnemu obdobju pripiše indeks, ki je v primeru povečanja učinkovitosti glede
+CCR metoda vsakemu časovnemu obdobju pripiše indeks, ki je v primeru povečanja učinkovitosti glede
 na prejšnje leto večji od 1, v primeru zmanjšanja učinkovitosti pa manjši od 1. Prvemu obdobju
 indeksa ne pripišemo, saj služi za bazo, ki je ne moremo z ničimer primerjati. V našem primeru bo baza 
 država v letu 2000, za vsa naslednja leta pa izračunamo indeks na podalgi prejšnjega.
@@ -524,7 +524,7 @@ pričakovana življenjska doba ter stopnja umrljivosti novorojenčkov (število 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{zda_zdravstveni_izzidi.png}
+    \includegraphics[width=0.99\textwidth]{zda_zdravstveni_izzidi.png}
     \caption{Zdravstveni izidi v ZDA}
     \label{fig:zda_zdravstveni_izzidi}
 \end{figure}
@@ -542,17 +542,16 @@ V letu 2021 se pojavi majhno poslabšanje,
 kar lahko prav tako povezujemo s pandemijo in preobremenjenostjo zdravstvenega sistema, 
 a je nivo v letu 2022 še vedno nižji kot pred dvema desetletjema.
 
-\subsubsection{CRR indeks}
-Model CRR primerja posamezna leta in na podlagi količine vložkov ter doseženih rezultatov ovrednoti relativno učinkovitost. 
+\subsubsection{CCR indeks}
+Model CCR primerja posamezna leta in na podlagi količine vložkov ter doseženih rezultatov ovrednoti relativno učinkovitost. 
 Vrednost 1 pomeni najvišjo relativno učinkovitost, medtem ko vrednosti pod 1 pomenijo, 
-kako učinkovito je bilo leto glede na najbolj učinkovito leto. Indeks 0,4213 za leto 2003 pomeni, 
-da smo bili v tem letu le $42{,}13\%$ tako učinkoviti, kot v najbolj učinkovitem letu, ki ima indeks 1.
+kako učinkovito je bilo leto glede na najbolj učinkovito leto.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{zda_CRR_indeks.png}
-    \caption{CRR indeks v ZDA}
-    \label{fig:zda_CRR_indeks}
+    \includegraphics[width=0.7\textwidth]{ccr_zda.png}
+    \caption{CCR indeks v ZDA}
+    \label{fig:ccr_zda}
 \end{figure}
 
 Za vhodne podatke smo uporabili porabo javnega zdravstva kot delež bruto domačega proizvoda, 
@@ -560,7 +559,7 @@ Za vhodne podatke smo uporabili porabo javnega zdravstva kot delež bruto domač
 Pri izhodih pa smo preučili dva kazalnika, in sicer pričakovano življenjsko dobo in stopnjo umrljivosti dojenčkov, 
 ki meri število umrlih otrok pred dopolnjenim prvim letom starosti na vaških 1000 rojenih otrok.
 
-Iz grafa na sliki \ref{fig:zda_CRR_indeks} lahko razberemo, da z izjemo leta 2002 je produktivnost
+Iz grafa na sliki \ref{fig:ccr_zda} lahko razberemo, da z izjemo leta 2002 je produktivnost
 naraščala in višek dosegla s COVID-19 epidemijo. Zanimiv je tudi padec produktivnosti po
 ponovnem odprtju (2021 in 2022), kar bi lahko pripisali izčrpanosti
 sistema in vrnitvi k običajnem stanju, kjer se ponovno izvajajo
@@ -585,7 +584,7 @@ Vidimo, da ZDA večino časa delujejo tik nad ali pod to vrednostjo, kar pomeni,
 da se spremembe produktivnosti dogajajo počasi in postopoma. 
 Izjemen padec v letu 2022 pomeni, da je zdravstveni sistem (kljub morebitni rasti vhodov) 
 ustvaril občutno manj učinkovite izide kot leto prej. Vzroke bi lahko
-poiskali podobno, kot pri padcu produktivnosti v tem času, videnim s CRR
+poiskali podobno, kot pri padcu produktivnosti v tem času, videnim s CCR
 indeksom.
 
 \subsection{Analiza učinkovitosti javnega zdravstva v Sloveniji}
@@ -668,20 +667,20 @@ Pri izhodih smo preučili dva kazanika, in sicer pričakovano življensko dobo d
     \label{fig:umrljivost_doj_slo.png}
   \end{figure}
 
-\subsubsection{CRR indeks}
+\subsubsection{CCR indeks}
 
-  Za merjenje učinkovitosti javne porabe v zdravstvu smo uporabili Charnes-Cooper-Rhodes (CRR) model iz družine DEA metod. 
+  Za merjenje učinkovitosti javne porabe v zdravstvu smo uporabili Charnes-Cooper-Rhodes (CCR) model iz družine DEA metod. 
   Model primerja posamezna leta in na podlagi količine vložkov ter doseženih rezultatov ovrednoti relativno učinkovitost. 
   Vrednost 1 pomeni najvišjo relativno učinkovitost, vrednost 0 najnižjo, ostala leta pa so razvrščena vmes.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{CRR_stolpicni_slo.png}
-    \caption{Stolpični diagram gibanja CRR indeksa slovenskega javnega zdravstva med letoma 2000 in 2022}
+    \caption{Stolpični diagram gibanja CCR indeksa slovenskega javnega zdravstva med letoma 2000 in 2022}
     \label{fig:CRR_stolpicni_slo.png}
   \end{figure}
 
-  CRR metoda v Sloveniji pokaže zelo jasen trend v zadnjih dveh desetletjih. 
+  CCR metoda v Sloveniji pokaže zelo jasen trend v zadnjih dveh desetletjih. 
   V prvem desetletju številke konstantno rastejo, zanimivo, najmanj učinkovito leto je prav 2000. 
   Leta 2011 indeks znaša 0.628367148, naslednje leto pa prvič pade, in sicer na 0.599161023.  
   V naslednjih nekaj letih se giba nekje nad 0.6, leta 2016 pa prvič naraste nad 0.7. 
@@ -699,9 +698,9 @@ Pri izhodih smo preučili dva kazanika, in sicer pričakovano življensko dobo d
     \label{fig:bnp_pbr_slo.png}
 \end{figure}
 
-Rast BDP na prebivalca v letih do krize se ujema z večanjem učinkovitosti zdravstva, prvi padec BDP-ja v letih 2009 in 2010 pa se pri CRR indeksu še ne pozna. 
+Rast BDP na prebivalca v letih do krize se ujema z večanjem učinkovitosti zdravstva, prvi padec BDP-ja v letih 2009 in 2010 pa se pri CCR indeksu še ne pozna. 
 Zdi se, da je učinek gospodarske krize nekoliko zakasnjen, saj se prvi padec zgodi šele leta 2012, ko se zmanjša tudi BDP. 
-V letih po krizi (od 2013 do 2018) je vzorec spremeb CRR in BDP enak, oba rasteta do 2015 in nato zopet do 2018. 
+V letih po krizi (od 2013 do 2018) je vzorec spremeb CCR in BDP enak, oba rasteta do 2015 in nato zopet do 2018. 
 
 Leta 2019 je BDP na prebivalca padel za 83 evrov (kljub temu, da je celoten BDP zrastel), padec je sledil tudi leta 2020 (na prebivalca in celostno). 
 Učinkovitost tu ne sledi trendu gospodarstva, saj do leta 2021 raste do svojega »najboljšega rezultata«. 
@@ -716,7 +715,7 @@ Analiza ministrstva za zdravje je pokazala, da je bila dostopnost zdravstvenih s
 Za okoli 20 odstotkov so upadle obravave v ambulantah in hišne obravnave. Zelo okrnjeni so bili tudi preventivni programi (Zora, Dora in Svit), število preventivnih pregledov odraslih se je zmanjšalo za več kot pol. 
 Zabeleženo je bilo le 70 odstotokv realiziranih napotnic glede na število izdanih, kar pomeni, da velik del pacientov ni prišel do načrtovanih pregledov. \cite{jamsek2022analiza}
 
-CRR indeks kljub omenjenim težavam kaže, da je v izrednih razmerah zdravstvo delovalo najboljše. Pri ugotovitvah je potrebno upoštavati, da števila opravljenih pregledov v analizo nismo vključili, tako da je učinkovitost med epidemijo treba vzeti z rezervo.
+CCR indeks kljub omenjenim težavam kaže, da je v izrednih razmerah zdravstvo delovalo najboljše. Pri ugotovitvah je potrebno upoštavati, da števila opravljenih pregledov v analizo nismo vključili, tako da je učinkovitost med epidemijo treba vzeti z rezervo.
 
 Vseeno velja omeniti, da je COVID-19 imel tudi pozitivne učinke na učinkovitost, poročila predvsem izpostavljajo digitalizacijo.
 
@@ -738,11 +737,13 @@ Tako je bilo tudi v Sloveniji, kjer so spremebe glede na prejšne leto ostale zn
 \section{Zaključek}
 
 Analizirali smo učinkovitost javenga zdravstva v Sloveniji in ZDA
-v obdobju 2000--2022. S pomočjo CRR indeksa in zbranih podatkov
+v obdobju 2000--2022. S pomočjo CCR indeksa in zbranih podatkov
 smo prišli do zaključka, da je učinkovitost tako v Sloveniji kot
-v ZDA naraščala in dosegla višek v letu 2020 v času COVID-19. To smo
+v ZDA naraščala in dosegla višek v času COVID-19. To smo
 razložili prek postopnega dvigovanja deleža izdatkov BPD-ja za zdravstvo in
-dviga števila zdravstevnih delavcev.
+dviga števila zdravstevnih delavcev. Poleg tega se zavedamo, da indeks ni vključeval 
+opravljenih pregledov, ki bi negativno vplivali na izmerjeno učinkovitost med pandemijo.
+Kljub temu je bil trend izboljšanja očiten že pred letom 2020.
 
 Malmquistov indeks nam je pokazal, da sta produktivnosti v Sloveniji
 in ZDA relativno stabilni, pomembno pa je vseeno omeniti velik padec
